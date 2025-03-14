@@ -42,7 +42,6 @@ avg
 # GÖREV 2
 
 df['helpful_no'] = df.apply(lambda x: x['total_vote'] - x['helpful_yes'], axis=1)
-# df['helpful_no'] = df['total_vote'] - df['helpful_yes']
 df.head(150)
 
 def up_down_diff(up, down):
@@ -70,5 +69,8 @@ def wilson_lower_bound(up, down, confidence=0.95):
     return (phat + z * z / (2 * n) - z * math.sqrt((phat * (1 - phat) + z * z / (4 * n)) / n)) / (1 + z * z / n)
 
 df['wilson_lower_bound'] = df.apply(lambda x: wilson_lower_bound(x['helpful_yes'], x['helpful_no']), axis=1)
+
+
+# Viewing results
 
 df.sort_values('wilson_lower_bound', ascending=False).head(20)
