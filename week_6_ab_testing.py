@@ -68,7 +68,3 @@ test_stat, pvalue = ttest_ind(df.loc[df.index < 40, 'Purchase'],     # pvalue = 
 # Bu sonuçlara göre "Average Bidding" stratejisi, "Maximum Bidding" stratejisine göre anlamlı bir iyileşme sağlamıyor.
 # "Maximum Bidding" stratejisi daha etkili görünüyor.
 
-
-for i in range(1000000000):
-    i=i+1
-    print(i)
